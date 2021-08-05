@@ -1,0 +1,30 @@
+export default class Matrix {
+    constructor(rows = 30, cols = 10, element) {
+        this.rows = rows;
+        this.cols = cols;
+        this.element = element;
+        this.cells = [];
+        this.createMatrix()
+    }
+    createMatrix() {
+        for(let i = 0; i < this.rows * this.cols; i++) {
+            let div = document.createElement('div');
+            if(i % this.cols === 0){
+                div.classList.add('row-start')
+            }
+            this.element.appendChild(div);
+            this.cells[i] = "";
+        }
+    }
+    setCell(x, y, val) {
+        let num = this._exactCell(x, y);
+        this.cells[num] = val;
+        this.element.children[num].classList.add(val)
+    }
+    getCell(x, y) {
+        return this._exactCell(x, y);
+    }
+    _exactCell(x, y) {
+        return x - 1 + (y - 1) * this.cols
+    }
+}

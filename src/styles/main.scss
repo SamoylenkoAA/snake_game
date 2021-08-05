@@ -1,0 +1,21 @@
+#root {
+  border-left: 1px solid #000000;
+  border-top: 1px solid #000000;
+  margin: 20px;
+  overflow: hidden;
+  display: inline-block;
+  div {
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    float: left;
+  }
+  div.row-start {
+    clear: both;
+  }
+}
+.fruit {
+  background: red;
+}
