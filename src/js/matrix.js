@@ -19,7 +19,7 @@ export default class Matrix {
     setCell(x, y, val) {
         let num = this._exactCell(x, y);
         this.cells[num] = val;
-        this.element.children[num].classList.add(val)
+        this.element.children[num].setAttribute('data-game', val)
     }
     getCell(x, y) {
         return this._exactCell(x, y);

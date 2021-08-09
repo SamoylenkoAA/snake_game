@@ -15,7 +15,10 @@
   div.row-start {
     clear: both;
   }
-}
-.fruit {
-  background: red;
+  div[data-game="snake"] {
+    background: #d77328;
+  }
+  div[data-game="fruit"] {
+    background: #ff0000;
+  }
 }
