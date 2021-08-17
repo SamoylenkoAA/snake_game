@@ -9,7 +9,25 @@ window.onload = () => {
     let snake = new Snake(matrix, [[8, 2],[7, 2],[6, 2],[5, 2]]);
     snake.show()
 
+    document.addEventListener('keydown', (event) => {
+        console.log(event.key);
+        switch (event.key) {
+            case 'ArrowUp':
+                snake.course = 38
+                break;
+            case 'ArrowDown':
+                snake.course = 40
+                break;
+            case 'ArrowLeft':
+                snake.course = 37
+                break;
+            case 'ArrowRight':
+                snake.course = 39
+                break;
+        }
+    })
+
     setInterval(() => {
-        snake.move(39)
-    }, 1000)
+        snake.move()
+    }, 200)
 }

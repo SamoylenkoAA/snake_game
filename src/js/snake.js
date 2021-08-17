@@ -3,6 +3,7 @@ export default class Snake {
         this.matrix = matrix;
         this.cords = cords;
         this.value = 'snake';
+        this.course = 39
         this.alive = true;
     }
     show() {
@@ -10,13 +11,13 @@ export default class Snake {
             this.matrix.setCell(item[0], item[1], this.value)
         })
     }
-    move(direction) {
+    move() {
         if(!this.alive) {
             return
         }
         let head = this.cords[0].slice();
 
-        switch (direction) {
+        switch (this.course) {
             case 39:
                 head[0]++
                 break;
@@ -30,19 +31,20 @@ export default class Snake {
                 head[1]--
                 break;
         }
+
+        if(!this.checkAlive(head)){
+            this.alive = false;
+            return;
+        }
+
         let tail = this.cords.pop();
-        this.cords.unshift(head);
 
-        console.log(head[0])
-        this.checkAlive(head[0], head[1]);
-
-        this.matrix.setCell(head[0], head[1], this.value)
         this.matrix.setCell(tail[0], tail[1], '')
+        this.matrix.setCell(head[0], head[1], this.value)
+        this.cords.unshift(head);
     }
 
-    checkAlive(cordX, cordY) {
-        if( cordX >= this.matrix.rows || cordX <= 0 || cordY >= this.matrix.cols || cordY <= 0) {
-            this.alive = false
-        }
+    checkAlive(head) {
+        return head[0] >= 1 && head[0] <= this.matrix.cols && head[1] >= 1 && head[1] <= this.matrix.rows
     }
 }
