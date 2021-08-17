@@ -16,7 +16,6 @@ export default class Snake {
         if(!this.alive) {
             return
         }
-
         this.course = this.newCourse;
         let head = this.cords[0].slice();
 
