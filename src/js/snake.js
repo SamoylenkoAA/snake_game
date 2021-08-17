@@ -1,19 +1,26 @@
-import Element from "./element";
-
-export default class Snake extends Element{
+export default class Snake {
     constructor(matrix, cords) {
-        super(matrix, cords);
+        this.matrix = matrix;
+        this.cords = cords;
         this.value = 'snake';
         this.course = 39;
+        this.newCourse = this.course;
         this.alive = true;
+    }
+    show() {
+        this.cords.forEach(item => {
+            this.matrix.setCell(item[0], item[1], this.value)
+        })
     }
     move() {
         if(!this.alive) {
             return
         }
+
+        this.course = this.newCourse;
         let head = this.cords[0].slice();
 
-        switch (this.course) {
+        switch (this.newCourse) {
             case 39:
                 head[0]++
                 break;

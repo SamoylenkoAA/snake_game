@@ -14,19 +14,22 @@ window.onload = () => {
     fruit.show();
 
     document.addEventListener('keydown', (event) => {
-        console.log(event.key);
         switch (event.key) {
             case 'ArrowUp':
-                snake.course = 38
+                if(snake.course !== 40)
+                    snake.newCourse = 38
                 break;
             case 'ArrowDown':
-                snake.course = 40
+                if(snake.course !== 38)
+                    snake.newCourse = 40
                 break;
             case 'ArrowLeft':
-                snake.course = 37
+                if(snake.course !== 39)
+                    snake.newCourse = 37
                 break;
             case 'ArrowRight':
-                snake.course = 39
+                if(snake.course !== 37)
+                    snake.newCourse = 39
                 break;
         }
     })
