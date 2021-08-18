@@ -22,7 +22,8 @@ export default class Matrix {
         this.element.children[num].setAttribute('data-game', val)
     }
     getCell(x, y) {
-        return this._exactCell(x, y);
+        let num = this._exactCell(x, y);
+        return this.cells[num];
     }
     _exactCell(x, y) {
         return x - 1 + (y - 1) * this.cols
