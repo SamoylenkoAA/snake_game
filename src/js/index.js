@@ -2,6 +2,7 @@ import '../styles/main.scss';
 import Matrix from "./matrix";
 import Snake from "./snake";
 import Fruit from "./fruit";
+import Wall from "./wall";
 
 window.onload = () => {
     let element = document.querySelector('#root');
@@ -12,6 +13,9 @@ window.onload = () => {
 
     let fruit = new Fruit(matrix, [[5, 5]]);
     fruit.show();
+
+    let wall =  new Wall(matrix, [[4, 2],[4, 3],[4, 4],[10, 5],[11, 5],[11, 6],[11, 7],[11, 8],[18, 1],[19, 1],[20, 1],[20, 2]])
+    wall.show();
 
     document.addEventListener('keydown', (event) => {
         switch (event.key) {
