@@ -35,6 +35,21 @@ window.onload = () => {
     })
 
     setInterval(() => {
+        if(snake.eat){
+
+            let cordX, cordY;
+            do{
+                cordX = randomInteger(1, matrix.cols);
+                cordY = randomInteger(1, matrix.rows);
+                snake.eat = false;
+            }while (matrix.getCell(cordX, cordY) !== '')
+
+            new Fruit(matrix, [[cordX, cordY]]).show()
+        }
         snake.move()
     }, 200)
+}
+
+function randomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

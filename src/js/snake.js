@@ -6,6 +6,7 @@ export default class Snake {
         this.course = 39;
         this.newCourse = this.course;
         this.alive = true;
+        this.eat = false;
     }
     show() {
         this.cords.forEach(item => {
@@ -39,9 +40,13 @@ export default class Snake {
             return;
         }
 
-        let tail = this.cords.pop();
+        if(this.matrix.getCell(head[0], head[1]) === 'fruit'){
+            this.eat = true;
+        }else {
+            let tail = this.cords.pop();
+            this.matrix.setCell(tail[0], tail[1], '')
+        }
 
-        this.matrix.setCell(tail[0], tail[1], '')
         this.matrix.setCell(head[0], head[1], this.value)
         this.cords.unshift(head);
     }
