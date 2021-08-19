@@ -1,3 +1,5 @@
+import fruit from "./fruit";
+
 export default class Snake {
     constructor(matrix, cords) {
         this.matrix = matrix;
@@ -34,13 +36,14 @@ export default class Snake {
                 head[1]--
                 break;
         }
+        let checkCell = this.matrix.getCell(head[0], head[1])
 
-        if(!this.checkAlive(head)){
+        if(!this.checkAlive(head) || checkCell === 'snake' || checkCell === 'wall'){
             this.alive = false;
             return;
         }
 
-        if(this.matrix.getCell(head[0], head[1]) === 'fruit'){
+        if(checkCell === 'fruit') {
             this.eat = true;
         }else {
             let tail = this.cords.pop();
