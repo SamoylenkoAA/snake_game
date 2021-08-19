@@ -1,27 +1,38 @@
-#root {
-  border-left: 1px solid #000000;
-  border-top: 1px solid #000000;
-  margin: 20px;
-  overflow: hidden;
-  display: inline-block;
-  div {
-    border-right: 1px solid #000000;
-    border-bottom: 1px solid #000000;
-    box-sizing: border-box;
-    width: 20px;
-    height: 20px;
-    float: left;
+#container {
+  display: flex;
+  flex-direction: column;
+  #root {
+    border-left: 1px solid #000000;
+    border-top: 1px solid #000000;
+    margin: 20px auto;
+    overflow: hidden;
+    display: inline-block;
+    div {
+      border-right: 1px solid #000000;
+      border-bottom: 1px solid #000000;
+      box-sizing: border-box;
+      width: 20px;
+      height: 20px;
+      float: left;
+    }
+    div.row-start {
+      clear: both;
+    }
+    div[data-game="snake"] {
+      background: #d77328;
+    }
+    div[data-game="fruit"] {
+      background: #ff0000;
+    }
+    div[data-game="wall"] {
+      background: #a28039;
+    }
   }
-  div.row-start {
-    clear: both;
-  }
-  div[data-game="snake"] {
-    background: #d77328;
-  }
-  div[data-game="fruit"] {
-    background: #ff0000;
-  }
-  div[data-game="wall"] {
-    background: #a28039;
+  #game-point{
+    background: #f6f4f4;
+    border: 1px solid #cbc9c9;
+    height: 50px;
+    width: 400px;
+    margin: auto;
   }
 }
