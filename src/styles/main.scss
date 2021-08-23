@@ -1,15 +1,16 @@
+@import "variables";
 #container {
   display: flex;
   flex-direction: column;
   #root {
-    border-left: 1px solid #000000;
-    border-top: 1px solid #000000;
+    border-left: 1px solid $border-color;
+    border-top: 1px solid $border-color;
     margin: 20px auto;
     overflow: hidden;
     display: inline-block;
     div {
-      border-right: 1px solid #000000;
-      border-bottom: 1px solid #000000;
+      border-right: 1px solid $border-color;
+      border-bottom: 1px solid $border-color;
       box-sizing: border-box;
       width: 20px;
       height: 20px;
@@ -19,20 +20,28 @@
       clear: both;
     }
     div[data-game="snake"] {
-      background: #d77328;
+      background: $snake-color;
     }
     div[data-game="fruit"] {
-      background: #ff0000;
+      background: $fruit-color;
     }
     div[data-game="wall"] {
-      background: #a28039;
+      background: $wall-color;
     }
   }
-  #game-point{
-    background: #f6f4f4;
+  #game-point {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background: #eeebeb;
     border: 1px solid #cbc9c9;
     height: 50px;
     width: 400px;
     margin: auto;
+
+    h3 {
+      margin: 10px;
+      font-family: $font-family;
+    }
   }
 }

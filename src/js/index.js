@@ -3,9 +3,12 @@ import Matrix from "./matrix";
 import Snake from "./snake";
 import Fruit from "./fruit";
 import Wall from "./wall";
+import Helpers from "./helpers";
 
 window.onload = () => {
     let element = document.querySelector('#root');
+    let totalShow = document.querySelector('#total-show');
+
     let matrix = new Matrix(20, 20, element);
 
     let snake = new Snake(matrix, [[8, 2],[7, 2],[6, 2],[5, 2]]);
@@ -16,6 +19,8 @@ window.onload = () => {
 
     let wall =  new Wall(matrix, [[4, 2],[4, 3],[4, 4],[10, 5],[11, 5],[11, 6],[11, 7],[11, 8],[18, 1],[19, 1],[20, 1],[20, 2]])
     wall.show();
+
+    let helpers = new Helpers( 0 , totalShow);
 
     document.addEventListener('keydown', (event) => {
         switch (event.key) {
@@ -40,11 +45,13 @@ window.onload = () => {
 
     setInterval(() => {
         if(snake.eat){
+            helpers.total++;
+            helpers.showTotal();
 
             let cordX, cordY;
             do{
-                cordX = randomInteger(1, matrix.cols);
-                cordY = randomInteger(1, matrix.rows);
+                cordX = helpers.randomInteger(1, matrix.cols);
+                cordY = helpers.randomInteger(1, matrix.rows);
                 snake.eat = false;
             }while (matrix.getCell(cordX, cordY) !== '')
 
@@ -52,8 +59,4 @@ window.onload = () => {
         }
         snake.move()
     }, 200)
-}
-
-function randomInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

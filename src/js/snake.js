@@ -1,19 +1,13 @@
-import fruit from "./fruit";
+import Element from "./element";
 
-export default class Snake {
+export default class Snake extends Element{
     constructor(matrix, cords) {
-        this.matrix = matrix;
-        this.cords = cords;
+        super(matrix, cords)
         this.value = 'snake';
         this.course = 39;
         this.newCourse = this.course;
         this.alive = true;
         this.eat = false;
-    }
-    show() {
-        this.cords.forEach(item => {
-            this.matrix.setCell(item[0], item[1], this.value)
-        })
     }
     move() {
         if(!this.alive) {
