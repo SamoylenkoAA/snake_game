@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 export default class Helpers {
     constructor(total = 0, element) {
         this.total = total;
@@ -9,5 +11,8 @@ export default class Helpers {
     }
     showTotal() {
        this.element.innerHTML = this.total;
+    }
+    alert() {
+        Swal.fire('Game Over!')
     }
 }

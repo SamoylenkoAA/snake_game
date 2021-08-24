@@ -1,5 +1,4 @@
 import '../styles/main.scss';
-import Swal from "sweetalert2";
 import Matrix from "./matrix";
 import Snake from "./snake";
 import Fruit from "./fruit";
@@ -46,7 +45,7 @@ window.onload = () => {
 
     let interval = setInterval(() => {
         if(!snake.alive){
-            Swal.fire('Game Over!')
+            helpers.alert();
             clearInterval(interval);
         }
 
